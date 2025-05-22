@@ -21,7 +21,8 @@ const HeroSection: React.FC = () => {
   });
 
   const OpenResume = () => {
-    window.location.href = "Harshil-resume.pdf";
+    // window.location.href = "Harshil-resume.pdf";
+    window.open("Harshil-resume.pdf", '_blank');
   }
 
   return (
