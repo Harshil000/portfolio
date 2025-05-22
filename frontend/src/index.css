@@ -109,7 +109,7 @@ textarea {
 }
 
 .Downloadbutton span:after {
-  content: "Download";
+  content: "Open";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -118,7 +118,7 @@ textarea {
 }
 
 .Downloadbutton:hover span {
-  padding-left: 5em;
+  padding-left: 4em;
 }
 
 .Downloadbutton:hover span:after {
