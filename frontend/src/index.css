@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+  /* cursor: none; */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply text-gray-800;
+}
+
+/* Section entrance animations */
+.animate-on-scroll {
+  @apply opacity-0;
+  transition: all 0.6s ease-out;
+  transform: translateY(20px);
+}
+
+.animate-on-scroll.is-visible {
+  @apply opacity-100;
+  transform: translateY(0);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-indigo-500;
+}
+
+/* Custom focus outline */
+*:focus {
+  @apply outline-none ring-2 ring-indigo-500 ring-offset-2;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-indigo-100 text-indigo-900;
+}
+
+/* Custom styling for form elements */
+input, textarea {
+  @apply transition-all duration-200;
+}
+
+.cursor{
+  position: fixed;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: rgb(177, 116, 207);
+}
+
+.logoLink:hover{
+  animation: LinkAnumation 0.5s ease-in-out;
+}
+
+@keyframes LinkAnumation {
+  0% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
