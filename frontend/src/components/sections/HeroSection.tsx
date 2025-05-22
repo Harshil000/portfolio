@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
       y: 100,
       x: -50,
       opacity: 0,
-      duration:0.2,
+      duration: 0.2,
       scale: 2,
       ease: 'power2.out',
       stagger: 0.1,
@@ -20,19 +20,22 @@ const HeroSection: React.FC = () => {
     });
   });
 
+  const OpenResume = () => {
+    window.location.href = "Harshil-resume.pdf";
+  }
+
   return (
     <section className="py-20 bg-gradient-to-b from-indigo-50 to-white">
       <Container>
         <div className="flex flex-col items-center text-center">
           <h1 className="text-3xl sm:text-6xl font-bold text-gray-900 mb-4 tracking-tight">
-            {/* {personalInfo.name} */}
             {personalInfo.name.split('').map((word, index) => (
               <span
                 key={index}
                 className='WordAnimation inline-block'
               >
                 {word}
-                
+
               </span>
             ))}
           </h1>
@@ -42,7 +45,7 @@ const HeroSection: React.FC = () => {
           <p className="text-gray-700 max-w-2xl mb-8">
             {personalInfo.intro}
           </p>
-          
+
           <div className="flex space-x-4">
             <a
               href={personalInfo.github}
@@ -70,6 +73,11 @@ const HeroSection: React.FC = () => {
               <Mail size={24} />
             </a>
           </div>
+
+          <button className="Downloadbutton my-8" onClick={OpenResume} style={{ "verticalAlign": "middle" }}>
+            <span>Resume</span>
+          </button>
+
         </div>
       </Container>
     </section>
