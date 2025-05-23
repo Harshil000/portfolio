@@ -19,11 +19,26 @@ const ContactSection: React.FC = () => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
+
+  const sendMail = async() => {
+    const response = await fetch('http://127.0.0.1:5000/sendMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+    
+    let data = await response.text();
+    console.log(data);
+  }
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
+    await sendMail()
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
