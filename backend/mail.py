@@ -1,9 +1,12 @@
 from flask import Flask, request
 from flask_cors import CORS
 import smtplib
+import os
+from dotenv import load_dotenv, dotenv_values
 
 app = Flask(__name__)
 CORS(app)
+load_dotenv()
 
 @app.route("/sendMail", methods=["POST"])
 def sendMail():
@@ -20,7 +23,7 @@ def sendMail():
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
-    server.login(senderEmail, "qeyskkhoutnmdnpp")  # Replace with your actual password
+    server.login(senderEmail, os.getenv("PASSWORD"))  # Replace with your actual password
 
     server.sendmail(senderEmail, receiverEmail, finalMail)
 
