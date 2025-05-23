@@ -8,6 +8,10 @@ app = Flask(__name__)
 CORS(app)
 load_dotenv()
 
+@app.route("/")
+def home():
+    return "Welcome to the email sending service!"
+
 @app.route("/sendMail", methods=["POST"])
 def sendMail():
     senderEmail = "techshock01@gmail.com"
