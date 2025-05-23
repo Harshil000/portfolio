@@ -21,7 +21,7 @@ const ContactSection: React.FC = () => {
   };
 
   const sendMail = async() => {
-    const response = await fetch('http://127.0.0.1:5000/sendMail', {
+    const response = await fetch('https://portfolio-ekii.onrender.com/sendMail', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
