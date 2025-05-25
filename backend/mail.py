@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv, dotenv_values
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://portfolio-harshil000s-projects.vercel.app"], supports_credentials=True)
 load_dotenv()
 
 @app.route("/")
