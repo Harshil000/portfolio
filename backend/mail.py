@@ -22,14 +22,18 @@ def sendMail():
     email = data.get("email")
     message = data.get("message")
     
-    finalMail = f"name :- {name}\n email :- {email}\n message :- {message}"
+    subject = "New message from your website"
+    
+    text = f"Name :- {name} \nEmail :- {email} \nMessage :- {message}"
+    
+    email = f"Subject: {subject}\n\n{text}"
 
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.starttls()
 
     server.login(senderEmail, os.getenv("PASSWORD"))  # Replace with your actual password
 
-    server.sendmail(senderEmail, receiverEmail, finalMail)
+    server.sendmail(senderEmail, receiverEmail, email)
 
     print("Email sent successfully")
     server.quit()
